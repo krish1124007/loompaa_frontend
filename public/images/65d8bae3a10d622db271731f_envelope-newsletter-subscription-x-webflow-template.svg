@@ -1,0 +1,22 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="60" cy="60" r="60" fill="#FFFAF3"/>
+<path d="M28.8281 50.4796L59.6391 50.4785L90.2035 50.4788V87.0389C90.2035 89.5178 88.194 91.5274 85.7151 91.5274H33.3184C30.8396 91.5274 28.8301 89.518 28.83 87.0392L28.8281 50.4796Z" stroke="#080808" stroke-width="2"/>
+<path d="M59.5469 63.3848L30.2422 89.793" stroke="#080808" stroke-width="2"/>
+<path d="M59.5195 63.3848L88.7792 89.7881" stroke="#080808" stroke-width="2"/>
+<path d="M28.25 49.8544L55.7612 31.175C58.1095 29.5806 61.1943 29.5856 63.5374 31.1875L90.8345 49.8501L63.6883 69.5039C61.2792 71.2482 58.0239 71.2538 55.6087 69.518L28.25 49.8544Z" fill="#080808"/>
+<mask id="mask0_9869_8530" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="30" y="30" width="59" height="41">
+<path d="M55.9068 69.7436L30.4414 51.427L33.8942 30.7441H59.6477H82.711L88.6777 51.4111L63.3832 69.7313C61.1541 71.3459 58.1413 71.3508 55.9068 69.7436Z" fill="#F7C3D7"/>
+</mask>
+<g mask="url(#mask0_9869_8530)">
+<rect x="38.3945" y="36.5996" width="43.8677" height="40.5753" rx="3" fill="#FFC121"/>
+</g>
+<path d="M46.3477 45.3652H63.6934" stroke="white" stroke-width="2" stroke-linecap="round"/>
+<path d="M46.3477 50.8398H72.746" stroke="white" stroke-width="2" stroke-linecap="round"/>
+<path d="M46.3477 56.4648H72.746" stroke="white" stroke-width="2" stroke-linecap="round"/>
+<path d="M94.9844 40.3916L101.588 44.2041" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<path d="M100.191 38.9961L96.3789 45.5995" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<circle cx="1.9375" cy="1.9375" r="1.9375" transform="matrix(0.410532 0.911846 0.911846 -0.410532 17.5547 80.0518)" fill="#080808" stroke="#080808" stroke-width="2"/>
+<path d="M24.6719 26.8047L32.3972 36.2639" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<path d="M35.0547 26.2109L36.3024 33.882" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<path d="M22.0117 36.8623L29.2789 39.6173" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+</svg>

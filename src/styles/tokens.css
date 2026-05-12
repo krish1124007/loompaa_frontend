@@ -1,0 +1,43 @@
+:root {
+  /* Surfaces */
+  --bg-base: #0A0A0A;
+  --bg-elevated: #141414;
+  --bg-inverse: #F5F1E8;
+
+  /* Ink */
+  --ink-primary: #F5F1E8;
+  --ink-secondary: #A8A39A;
+  --ink-tertiary: #6B6760;
+  --ink-inverse: #0A0A0A; /* Black text on Light surfaces */
+  --ink-on-cream: #0A0A0A;
+
+  /* Accent */
+  --accent-tangerine: #FF6B2C;
+  --accent-lemon: #FFD93D;
+
+  /* Multi-color card palette (used on cream sections) */
+  --card-orange: #FF6B4A;
+  --card-blue: #4F6FFF;
+  --card-yellow: #FFD93D;
+  --card-mint: #A8E6CF;
+
+  /* Borders */
+  --border-subtle: rgba(245, 241, 232, 0.08);
+  --border-strong: rgba(245, 241, 232, 0.18);
+
+  /* States */
+  --success: #4ADE80;
+  --error: #F87171;
+}
+
+.theme-cream {
+  --bg-base: #F5F1E8;
+  --bg-elevated: #FFFFFF;
+  --bg-inverse: #0A0A0A;
+  --ink-primary: #0A0A0A;
+  --ink-secondary: #545049;
+  --ink-tertiary: #8A857B;
+  --ink-inverse: #F5F1E8; /* Cream text on Dark surfaces */
+  --border-subtle: rgba(10, 10, 10, 0.08);
+  --border-strong: rgba(10, 10, 10, 0.20);
+}

@@ -1,0 +1,16 @@
+<svg width="91" height="80" viewBox="0 0 91 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M88.3164 72.2876L79.6805 63.6517" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<path d="M89.9492 62.0154L82.4421 60.0039" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<path d="M78.043 73.9226L76.0315 66.4155" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<circle cx="5.83027" cy="14.946" r="1.9375" transform="rotate(-60 5.83027 14.946)" fill="#080808" stroke="#080808" stroke-width="2"/>
+<path d="M79.9844 11.1335L86.5878 14.946" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<path d="M85.1914 9.73804L81.3789 16.3415" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<rect x="20.9199" y="17.5139" width="49.1702" height="39.7693" rx="3" fill="#FFFAF3" stroke="#080808" stroke-width="2"/>
+<rect x="65.7637" y="33.5538" width="40.5186" height="22.3495" rx="3" transform="rotate(-180 65.7637 33.5538)" fill="#080808"/>
+<path d="M13.9688 31.2373C13.9688 27.9236 16.655 25.2373 19.9688 25.2373H70.031C73.3447 25.2373 76.031 27.9236 76.031 31.2373V51.2831C76.031 54.5968 73.3447 57.2831 70.031 57.2831H19.9687C16.655 57.2831 13.9688 54.5968 13.9688 51.2831V31.2373Z" fill="#FFFAF3" stroke="#080808" stroke-width="2"/>
+<path d="M66.5254 65.7958C66.5254 67.4526 65.1822 68.7958 63.5254 68.7958L29.0067 68.7958C27.3499 68.7958 26.0067 67.4526 26.0067 65.7958L26.0068 46.4463L66.5254 46.4463L66.5254 65.7958Z" fill="#FFC121"/>
+<path d="M68.9419 46.4463H22.0664" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<path d="M59.1816 59.0687L34.7986 59.0687" stroke="white" stroke-width="2" stroke-linecap="round"/>
+<path d="M59.1816 54.0121L34.7987 54.0121" stroke="white" stroke-width="2" stroke-linecap="round"/>
+<path d="M65.6035 32.8868C65.6035 31.6478 66.609 30.6434 67.848 30.6434V30.6434C69.087 30.6434 70.0925 31.6478 70.0925 32.8868V32.8868C70.0925 34.1258 69.087 35.1302 67.848 35.1302V35.1302C66.609 35.1302 65.6035 34.1258 65.6035 32.8868V32.8868Z" fill="#080808"/>
+</svg>

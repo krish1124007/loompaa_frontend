@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Force font-stretch globally on ALL elements */
+  * {
+    font-stretch: 123% !important;
+  }
+
+  body {
+    @apply bg-base text-ink font-sans;
+    margin: 0;
+    font-family: 'Mona Sans', sans-serif !important;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  .hero-title, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Mona Sans', sans-serif !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.03em !important;
+    line-height: 1 !important;
+    max-width: 900px;
+  }
+
+  /* Paragraphs and general text */
+  p, .hero-text, span, div, li, a, button {
+    font-weight: 500;
+  }
+
+  ::selection {
+    background: var(--accent-tangerine);
+    color: var(--ink-on-cream);
+  }
+}

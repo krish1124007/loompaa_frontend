@@ -1,0 +1,19 @@
+<svg width="90" height="80" viewBox="0 0 90 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M49.9492 11.8613L78.7084 47.3021C78.7261 47.3239 78.7502 47.3394 78.7773 47.3464V47.3464C85.484 49.0847 88.6896 56.735 85.2255 62.7351L85.0971 62.9575C82.1485 68.0647 75.6179 69.8145 70.5107 66.8659L68.2491 65.5602C68.2315 65.55 68.2122 65.5432 68.1922 65.54L23.1077 58.3522L49.9492 11.8613Z" stroke="#080808" stroke-width="2" stroke-linejoin="round"/>
+<ellipse cx="36.4274" cy="35.0478" rx="11.7498" ry="26.8403" transform="rotate(30 36.4274 35.0478)" fill="#080808" stroke="#080808" stroke-width="2"/>
+<mask id="mask0_9867_11631" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="18" y="10" width="37" height="51">
+<ellipse cx="36.4274" cy="35.0488" rx="11.7498" ry="26.8403" transform="rotate(30 36.4274 35.0488)" fill="#080808" stroke="black" stroke-width="2"/>
+</mask>
+<g mask="url(#mask0_9867_11631)">
+<path d="M32.9335 33.0313C34.8254 29.7546 38.8507 28.3844 42.3488 29.8266L54.4105 34.7994C59.6041 36.9406 61.7232 43.1662 58.9143 48.0313V48.0313C56.1054 52.8964 49.6544 54.1741 45.2032 50.7469L34.8658 42.7875C31.8678 40.4792 31.0417 36.3081 32.9335 33.0313V33.0313Z" fill="#FE5E3A"/>
+</g>
+<path d="M78.9297 47.5522V47.5522C77.6055 54.539 73.9503 60.8699 68.5617 65.5101V65.5101" stroke="#080808" stroke-width="2"/>
+<path d="M75.6289 43.4509V43.4509C74.0399 51.835 69.6537 59.4321 63.1873 65.0003V65.0003" stroke="#080808" stroke-width="2"/>
+<path d="M68.6233 65.7426L66.8665 68.7855C65.0533 71.9262 61.0373 73.0022 57.8967 71.189L56.9988 70.6706C54.354 69.1436 53.4479 65.7618 54.9748 63.117V63.117" stroke="#080808" stroke-width="2"/>
+<path d="M4.37109 17.9728L14.9478 24.0793" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<path d="M5.44922 28.3175H13.2211" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<path d="M13.8711 13.7343L17.757 20.4649" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<path d="M27.2227 6.0033L33.8261 9.8158" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<path d="M32.4297 4.60779L28.6172 11.2112" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<circle cx="12.6467" cy="45.7159" r="1.9375" transform="rotate(-60 12.6467 45.7159)" fill="#080808" stroke="#080808" stroke-width="2"/>
+</svg>

@@ -1,0 +1,18 @@
+<svg width="90" height="80" viewBox="0 0 90 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M77.3301 63.7883L68.6942 55.1524" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<path d="M78.9629 53.5161L71.4558 51.5046" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<path d="M67.0566 65.4233L65.0451 57.9163" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<circle cx="5.83027" cy="7.83209" r="1.9375" transform="rotate(-60 5.83027 7.83209)" fill="#080808" stroke="#080808" stroke-width="2"/>
+<path d="M79.9844 19.9978L86.5878 23.8103" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<path d="M85.1914 18.6023L81.3789 25.2057" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<path d="M38.1211 40.6541C38.5398 44.7611 39.0401 48.6365 39.6548 52.0731M40.784 57.3324C42.2237 62.8676 44.1507 66.3687 46.7984 66.3687C51.5908 66.3687 54.0232 54.9018 55.4758 40.6541" stroke="#080808" stroke-width="2" stroke-miterlimit="22.9256" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M20.7656 40.654C21.3703 34.723 22.1449 29.2745 23.1888 24.9341M24.7742 19.7964C26.0175 16.739 27.545 14.9392 29.443 14.9392C34.2354 14.9392 36.6678 26.4062 38.1203 40.6539" stroke="#080808" stroke-width="2" stroke-miterlimit="22.9256" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M55.4766 40.654C55.7052 38.411 55.9582 36.2372 56.2408 34.1661M57.0792 28.8524C58.5948 20.5747 60.7943 14.9392 64.1539 14.9392C68.9463 14.9392 71.3786 26.4062 72.8313 40.6539" stroke="#080808" stroke-width="2" stroke-miterlimit="22.9256" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="23.7075" cy="23.1814" r="5.73878" fill="#3C2BFF"/>
+<circle cx="39.5552" cy="53.5115" r="5.73878" fill="#3C2BFF"/>
+<circle cx="56.5669" cy="33.5354" r="5.73878" fill="#3C2BFF"/>
+<path d="M75.8516 41.3202H14.2109" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<path d="M14.2109 66.3686L14.2109 14.9392" stroke="#080808" stroke-width="2" stroke-linecap="round"/>
+<circle cx="12" cy="40.6438" r="10.5625" fill="#080808"/>
+<path d="M15.4608 40.0557C16.1275 40.4406 16.1275 41.4028 15.4608 41.7877L10.7578 44.503C10.0911 44.8879 9.25781 44.4068 9.25781 43.637L9.25781 38.2064C9.25781 37.4366 10.0911 36.9555 10.7578 37.3404L15.4608 40.0557Z" fill="#FFFAF3"/>
+</svg>

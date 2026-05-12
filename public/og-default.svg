@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#F5F1E8" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0A0A0A"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <text x="80" y="120" font-family="Inter, sans-serif" font-weight="800" font-size="56" fill="#F5F1E8" letter-spacing="-2">
+    loom<tspan fill="#FF6B2C">pa</tspan>
+  </text>
+  <text x="80" y="320" font-family="Inter, sans-serif" font-weight="700" font-size="84" fill="#F5F1E8" letter-spacing="-3">
+    We don't pitch decks.
+  </text>
+  <text x="80" y="430" font-family="Instrument Serif, serif" font-weight="400" font-size="84" fill="#FF6B2C" font-style="italic" letter-spacing="-3">
+    We ship results.
+  </text>
+  <text x="80" y="560" font-family="JetBrains Mono, monospace" font-weight="500" font-size="22" fill="#A8A39A" letter-spacing="3">
+    YOUR E-COMMERCE FACTORY FLOOR
+  </text>
+</svg>

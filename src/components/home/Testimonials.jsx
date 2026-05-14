@@ -1,7 +1,4 @@
 import { useState, useMemo } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import SectionHeader from '../ui/SectionHeader.jsx';
-import Button from '../ui/Button.jsx';
 import RevealOnScroll from '../ui/RevealOnScroll.jsx';
 import IMG from '../../assets/images.js';
 import gsap from 'gsap';
@@ -9,151 +6,136 @@ import { useGSAP } from '@gsap/react';
 
 const TESTIMONIALS = [
   {
+    title: 'Design brilliance that exceeds expectations.!',
     quote:
-      "Cut our CAC by 40% in 60 days. They didn't even ask for a kickoff meeting — they showed up to the first call with the campaign brief already drafted.",
+      "Lorem ipsum dolor sit amet consectetur. Amet mi in purus velit potenti donec eu faucibus mauris. Neque leo commodo ut viverra in tortor et maecenas sagittis nulla.",
     author: 'Sophie Moore',
-    role: 'Founder, D2C Skincare',
-    city: 'Ahmedabad',
+    role: 'San Francisco, CA',
     avatar: IMG.sophieMoore,
-    quoteIcon: IMG.yellowQuote,
   },
   {
+    title: 'Exceptional results for our brand growth.',
     quote:
-      'Finally, an agency that reports on revenue and not impressions. Every Friday I get a 4-line email with the number that matters and what changed.',
+      "Lorem ipsum dolor sit amet consectetur. Amet mi in purus velit potenti donec eu faucibus mauris. Neque leo commodo ut viverra in tortor et maecenas sagittis nulla.",
     author: 'John Carter',
-    role: 'CMO, Apparel Brand',
-    city: 'Mumbai',
+    role: 'New York, NY',
     avatar: IMG.johnCarter,
-    quoteIcon: IMG.blueQuote,
   },
   {
+    title: 'Highly recommended for any D2C founder.',
     quote:
-      "They had observations on day one. We've been working together for 14 months and still haven't had a single 'we need more time to see results' conversation.",
-    author: 'Mahesh Patel',
-    role: 'Founder, Home-goods',
-    city: 'Surat',
+      "Lorem ipsum dolor sit amet consectetur. Amet mi in purus velit potenti donec eu faucibus mauris. Neque leo commodo ut viverra in tortor et maecenas sagittis nulla.",
+    author: 'Matt Cannon',
+    role: 'Austin, TX',
     avatar: IMG.johnCarterAlt,
-    quoteIcon: IMG.orangeQuote,
   },
 ];
-
-/* ── Reusable Character Split Component ── */
-function SplitText({ text, className }) {
-  const chars = useMemo(() => text.split(''), [text]);
-  return (
-    <span className={className}>
-      {chars.map((char, i) => (
-        <span key={i} className="char inline-block" style={{ opacity: 0.15 }}>
-          {char === ' ' ? '\u00A0' : char}
-        </span>
-      ))}
-    </span>
-  );
-}
 
 export default function Testimonials() {
   const [active, setActive] = useState(0);
   const t = TESTIMONIALS[active];
 
   useGSAP(() => {
-    /* Reveal animation for the quote characters */
-    gsap.to('.quote-text .char', {
-      opacity: 1,
-      duration: 0.04,
-      stagger: 0.015,
-      ease: 'none',
-    });
+    /* Smooth fade in for content change */
+    gsap.fromTo('.testimonial-content', 
+      { opacity: 0, x: 20 },
+      { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out' }
+    );
   }, [active]);
 
   return (
-    <section className="theme-cream bg-base">
-     <div className="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32">
-      <div className="text-center max-w-3xl mx-auto mb-12">
-        <SectionHeader
-          align="center"
-          eyebrow="WHAT OPERATORS SAY"
-          headline="Take a look at what our clients say."
-          emphasis="clients"
-          emphasisColor="lemon"
-        />
-        <RevealOnScroll delay={0.1}>
-          <div className="mt-8 flex justify-center">
-            <Button to="/contact" size="md">
-              Get in Touch
-            </Button>
-          </div>
-        </RevealOnScroll>
-      </div>
-
-      <RevealOnScroll>
-        <article
-          key={t.author}
-          className="relative max-w-3xl mx-auto rounded-card border border-subtle bg-elevated p-8 md:p-12 lg:p-16 text-center"
-        >
-          <img
-            src={t.quoteIcon}
-            alt=""
-            aria-hidden="true"
-            className="absolute top-8 left-8 h-8 w-8 md:h-10 md:w-10 opacity-30"
-          />
-          <img
-            src={t.quoteIcon}
-            alt=""
-            aria-hidden="true"
-            className="absolute bottom-8 right-8 h-8 w-8 md:h-10 md:w-10 rotate-180 opacity-30"
-          />
-
-          <p className="font-bold text-2xl md:text-3xl lg:text-4xl text-ink leading-[1.3] tracking-tight max-w-2xl mx-auto">
-            <SplitText text={`"${t.quote}"`} className="quote-text" />
-          </p>
-
-          <div className="mt-12 flex flex-col items-center gap-4">
-            <div className="h-16 w-16 rounded-full overflow-hidden border-2 border-tangerine p-0.5 bg-white">
-              <img src={t.avatar} alt={t.author} className="w-full h-full object-cover rounded-full" />
-            </div>
-            <div>
-              <div className="text-lg font-black text-ink tracking-tight uppercase">{t.author}</div>
-              <div className="text-xs font-bold text-tangerine tracking-[0.1em] uppercase mt-1">
-                {t.role} <span className="text-ink-tri mx-1">/</span> {t.city}
-              </div>
-            </div>
-          </div>
-        </article>
-      </RevealOnScroll>
-
-      {/* Carousel controls */}
-      <div className="mt-8 flex items-center justify-center gap-4">
-        <button
-          type="button"
-          onClick={() => setActive((a) => (a - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)}
-          className="h-12 w-12 rounded-full border border-strong text-ink-sec hover:border-tangerine hover:text-tangerine flex items-center justify-center transition-colors"
-          aria-label="Previous testimonial"
-        >
-          <ChevronLeft className="h-5 w-5" />
-        </button>
-        <div className="flex gap-2">
-          {TESTIMONIALS.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => setActive(i)}
-              aria-label={`Testimonial ${i + 1}`}
-              className={`h-2 rounded-full transition-all ${
-                i === active ? 'w-8 bg-tangerine' : 'w-2 bg-subtle hover:bg-strong'
-              }`}
-            />
-          ))}
+    <section className="theme-cream bg-[#FBF8F2] py-20 md:py-28 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 md:px-10">
+        
+        {/* ── Heading Section ── */}
+        <div className="text-center mb-16 flex flex-col items-center">
+          <RevealOnScroll>
+            <h2 className="font-sans font-black text-[42px] md:text-[64px] leading-[1.1] tracking-[-0.04em] text-[#0A0A0A] mb-6 flex flex-col items-center">
+              <span>Take a look at what</span>
+              <span className="flex items-center gap-3">
+                our <span className="relative inline-block px-4 py-1">
+                  <span className="absolute inset-0 bg-[#FF6B2C] -rotate-2 rounded-xl shadow-lg" />
+                  <span className="relative text-white">clients</span>
+                </span> say
+              </span>
+            </h2>
+          </RevealOnScroll>
+          <RevealOnScroll delay={0.2}>
+            <p className="text-[#545049] text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+              Lorem ipsum dolor sit amet consectetur mi urna tellus dignissim duis at in tempor mauris morbi fermentum dolor lobortis aliquam maecenas.
+            </p>
+          </RevealOnScroll>
         </div>
-        <button
-          type="button"
-          onClick={() => setActive((a) => (a + 1) % TESTIMONIALS.length)}
-          className="h-12 w-12 rounded-full border border-strong text-ink-sec hover:border-tangerine hover:text-tangerine flex items-center justify-center transition-colors"
-          aria-label="Next testimonial"
-        >
-          <ChevronRight className="h-5 w-5" />
-        </button>
+
+        {/* ── Testimonials Grid ── */}
+        <div className="grid grid-cols-12 gap-8 md:gap-16 items-center">
+          
+          {/* Left Column: Client Tabs */}
+          <div className="col-span-12 lg:col-span-5 space-y-3">
+            {TESTIMONIALS.map((item, i) => (
+              <button
+                key={item.author}
+                onClick={() => setActive(i)}
+                className={`w-full flex items-center gap-5 p-3.5 rounded-[2rem] transition-all duration-500 text-left border border-transparent ${
+                  i === active 
+                  ? 'bg-[#0A0A0A] text-white shadow-xl scale-[1.02]' 
+                  : 'hover:bg-black/5 text-[#0A0A0A]'
+                }`}
+              >
+                <div className="h-14 w-14 md:h-16 md:w-16 rounded-full overflow-hidden border-2 border-white/10 p-0.5">
+                   <img 
+                    src={item.avatar} 
+                    alt={item.author} 
+                    className={`w-full h-full object-cover rounded-full ${i === active ? '' : 'grayscale opacity-70'}`} 
+                   />
+                </div>
+                <div>
+                  <h4 className={`text-lg md:text-xl font-black leading-tight ${i === active ? 'text-white' : 'text-[#0A0A0A]'}`}>
+                    {item.author}
+                  </h4>
+                  <p className={`text-xs font-medium mt-0.5 ${i === active ? 'text-white/60' : 'text-[#545049]'}`}>
+                    {item.role}
+                  </p>
+                </div>
+              </button>
+            ))}
+          </div>
+
+          {/* Right Column: Testimonial Card */}
+          <div className="col-span-12 lg:col-span-7">
+            <RevealOnScroll>
+              <div className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_30px_80px_rgba(0,0,0,0.05)] border border-black/5 relative min-h-[360px] flex flex-col justify-center">
+                
+                {/* Content Container */}
+                <div className="testimonial-content">
+                  {/* Large Avatar */}
+                  <div className="h-20 w-20 md:h-24 md:w-24 rounded-full overflow-hidden border-4 border-[#FBF8F2] shadow-lg mb-8">
+                    <img src={t.avatar} alt={t.author} className="w-full h-full object-cover" />
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-2xl md:text-[32px] font-black text-[#0A0A0A] leading-tight tracking-tight mb-4">
+                    {t.title}
+                  </h3>
+
+                  {/* Quote */}
+                  <p className="text-[#545049] text-base md:text-lg leading-relaxed">
+                    {t.quote}
+                  </p>
+                </div>
+
+                {/* Decorative Elements */}
+                <div className="absolute top-8 right-8 opacity-[0.03]">
+                   <svg width="100" height="100" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C20.1216 16 21.017 16.8954 21.017 18V21C21.017 22.1046 20.1216 23 19.017 23H16.017C14.9124 23 14.017 22.1046 14.017 21ZM14.017 21V10C14.017 6.13401 17.151 3 21.017 3V5C18.2556 5 16.017 7.23858 16.017 10H19.017C20.1216 10 21.017 10.8954 21.017 12V15C21.017 16.1046 20.1216 17 19.017 17H16.017C14.9124 17 14.017 16.1046 14.017 15V21ZM3 21L3 18C3 16.8954 3.89543 16 5 16H8C9.10457 16 10 16.8954 10 18V21C10 22.1046 9.10457 23 8 23H5C3.89543 23 3 22.1046 3 21ZM3 21V10C3 6.13401 6.13401 3 10 3V5C7.23858 5 5 7.23858 5 10H8C9.10457 10 10 10.8954 10 12V15C10 16.1046 9.10457 17 8 17H5C3.89543 17 3 16.1046 3 15V21Z" />
+                   </svg>
+                </div>
+              </div>
+            </RevealOnScroll>
+          </div>
+
+        </div>
       </div>
-     </div>
     </section>
   );
 }

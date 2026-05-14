@@ -47,34 +47,32 @@ export default function Footer() {
   }
 
   return (
-    /* Explicitly light background — no dark theme */
-    <footer style={{ background: '#F5F1E8', color: '#0A0A0A' }}>
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-24">
+    <footer className="bg-[#0A0A0A] text-white rounded-t-[60px] md:rounded-t-[100px] overflow-hidden relative z-30">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32">
 
         {/* ── Top: logo + tagline + newsletter ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-14" style={{ borderBottom: '1px solid rgba(10,10,10,0.10)' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-20 pb-16 border-b border-white/10">
           
           {/* Logo + tagline + email */}
-          <div className="lg:col-span-7 flex flex-col gap-6">
+          <div className="lg:col-span-7 flex flex-col gap-8">
             <div className="flex items-baseline">
-              <span className="text-[clamp(3.5rem,10vw,7rem)] font-black leading-none tracking-[-0.05em]">
-                <span style={{ color: '#0A0A0A' }}>loomp</span>
-                <span style={{ color: '#FF6B2C' }}>aa</span>
+              <span className="text-[clamp(3.5rem,10vw,7.5rem)] font-black leading-none tracking-[-0.05em]">
+                <span className="text-white">loomp</span>
+                <span className="text-[#FF6B2C]">aa</span>
               </span>
             </div>
-            <p className="text-base md:text-lg max-w-md leading-relaxed" style={{ color: 'rgba(10,10,10,0.60)' }}>
+            <p className="text-lg md:text-xl max-w-md leading-relaxed text-white/50">
               Your e-commerce factory floor. We plug in, build the systems, and move the number — while you take the bow.
             </p>
             <a
               href="mailto:hello@loompaa.in"
-              className="group inline-flex items-center gap-2 text-base font-medium transition-colors w-fit"
-              style={{ color: '#0A0A0A' }}
-              onMouseEnter={e => e.currentTarget.style.color = '#FF6B2C'}
-              onMouseLeave={e => e.currentTarget.style.color = '#0A0A0A'}
+              className="group inline-flex items-center gap-3 text-lg font-bold text-white hover:text-[#FF6B2C] transition-all w-fit"
             >
-              <Mail className="h-5 w-5" />
+              <span className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#FF6B2C] group-hover:bg-[#FF6B2C]/10 transition-all">
+                <Mail className="h-5 w-5" />
+              </span>
               <span>hello@loompaa.in</span>
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
             </a>
           </div>
 
@@ -82,40 +80,33 @@ export default function Footer() {
           <div className="lg:col-span-5">
             <form
               onSubmit={onSubscribe}
-              className="rounded-card p-6 md:p-7 relative overflow-hidden"
-              style={{ background: '#FFFFFF', border: '1px solid rgba(10,10,10,0.08)' }}
+              className="rounded-[2.5rem] p-8 md:p-10 relative overflow-hidden bg-white/5 border border-white/10 backdrop-blur-sm"
             >
               <img
                 src={IMG.envelope}
                 alt=""
                 aria-hidden="true"
-                className="absolute -top-4 -right-4 w-24 h-24 opacity-70"
+                className="absolute -top-6 -right-6 w-32 h-32 opacity-20 pointer-events-none"
               />
-              <p className="font-mono text-eyebrow uppercase tracking-[0.18em] mb-3 relative z-10" style={{ color: '#FF6B2C' }}>
+              <p className="font-mono text-[12px] font-bold uppercase tracking-[0.2em] mb-4 text-[#FF6B2C]">
                 The Loompaa Letter
               </p>
-              <h3 className="text-xl md:text-2xl font-bold mb-2 relative z-10" style={{ color: '#0A0A0A' }}>
-                Subscribe to our newsletter
+              <h3 className="text-2xl md:text-3xl font-black mb-3 text-white">
+                Stay sharp.
               </h3>
-              <p className="text-sm mb-5 relative z-10" style={{ color: 'rgba(10,10,10,0.55)' }}>
-                One sharp insight. Every Tuesday. Free.
+              <p className="text-base mb-8 text-white/50">
+                One e-commerce execution insight. Every Tuesday. Free.
               </p>
-              <div className="flex flex-col sm:flex-row gap-2 relative z-10">
+              <div className="flex flex-col gap-3">
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="flex-1 rounded-2xl px-5 py-3 text-sm focus:outline-none focus:ring-2"
-                  style={{
-                    background: '#F5F1E8',
-                    border: '1px solid rgba(10,10,10,0.12)',
-                    color: '#0A0A0A',
-                    focusRingColor: '#FF6B2C',
-                  }}
+                  className="rounded-2xl px-6 py-4 text-base bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#FF6B2C] transition-all"
                 />
-                <Button type="submit" disabled={submitting} className="h-11 px-6">
+                <Button type="submit" variant="inverse" disabled={submitting} className="w-full py-4 rounded-2xl font-black uppercase tracking-widest text-sm">
                   {submitting ? '…' : 'Subscribe'}
                 </Button>
               </div>
@@ -124,20 +115,17 @@ export default function Footer() {
         </div>
 
         {/* ── Link columns ── */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 py-14">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-20 py-20">
           <div>
-            <p className="font-mono text-eyebrow uppercase tracking-[0.18em] mb-5" style={{ color: 'rgba(10,10,10,0.40)' }}>
+            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] mb-8 text-white/30">
               Main pages
             </p>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {MAIN_LINKS.map((l) => (
                 <li key={l.to}>
                   <Link
                     to={l.to}
-                    className="text-sm transition-colors"
-                    style={{ color: 'rgba(10,10,10,0.65)' }}
-                    onMouseEnter={e => e.currentTarget.style.color = '#FF6B2C'}
-                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(10,10,10,0.65)'}
+                    className="text-base font-medium text-white/60 hover:text-[#FF6B2C] transition-colors"
                   >
                     {l.label}
                   </Link>
@@ -147,18 +135,15 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="font-mono text-eyebrow uppercase tracking-[0.18em] mb-5" style={{ color: 'rgba(10,10,10,0.40)' }}>
+            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] mb-8 text-white/30">
               Services
             </p>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {services.slice(0, 6).map((s) => (
                 <li key={s.slug}>
                   <Link
                     to={`/services/${s.slug}`}
-                    className="text-sm transition-colors"
-                    style={{ color: 'rgba(10,10,10,0.65)' }}
-                    onMouseEnter={e => e.currentTarget.style.color = '#FF6B2C'}
-                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(10,10,10,0.65)'}
+                    className="text-base font-medium text-white/60 hover:text-[#FF6B2C] transition-colors"
                   >
                     {s.title}
                   </Link>
@@ -168,18 +153,15 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="font-mono text-eyebrow uppercase tracking-[0.18em] mb-5" style={{ color: 'rgba(10,10,10,0.40)' }}>
-              Utility pages
+            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] mb-8 text-white/30">
+              Legal
             </p>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {UTILITY_LINKS.map((l) => (
                 <li key={l.to}>
                   <Link
                     to={l.to}
-                    className="text-sm transition-colors"
-                    style={{ color: 'rgba(10,10,10,0.65)' }}
-                    onMouseEnter={e => e.currentTarget.style.color = '#FF6B2C'}
-                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(10,10,10,0.65)'}
+                    className="text-base font-medium text-white/60 hover:text-[#FF6B2C] transition-colors"
                   >
                     {l.label}
                   </Link>
@@ -189,25 +171,23 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="font-mono text-eyebrow uppercase tracking-[0.18em] mb-5" style={{ color: 'rgba(10,10,10,0.40)' }}>
-              Based in
+            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] mb-8 text-white/30">
+              Visit us
             </p>
-            <p className="text-sm leading-relaxed" style={{ color: 'rgba(10,10,10,0.65)' }}>
+            <p className="text-base font-medium leading-relaxed text-white/60">
               Surat &amp; Ahmedabad<br />India
             </p>
-            <p className="text-xs mt-3 font-mono uppercase tracking-wider" style={{ color: 'rgba(10,10,10,0.35)' }}>
-              MFG · EST 2024
-            </p>
+            <div className="mt-8 flex items-center gap-3">
+               <div className="w-2 h-2 rounded-full bg-[#FF6B2C] animate-pulse" />
+               <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-white/20">MFG · EST 2024</span>
+            </div>
           </div>
         </div>
 
         {/* ── Bottom bar ── */}
-        <div
-          className="pt-8 flex flex-col md:flex-row gap-4 md:items-center md:justify-between text-sm"
-          style={{ borderTop: '1px solid rgba(10,10,10,0.08)', color: 'rgba(10,10,10,0.40)' }}
-        >
-          <p>© {new Date().getFullYear()} Loompaa. All rights reserved.</p>
-          <p>Built by the factory floor, for the factory floor.</p>
+        <div className="pt-10 flex flex-col md:flex-row gap-6 md:items-center md:justify-between border-t border-white/5">
+          <p className="text-sm font-medium text-white/30">© {new Date().getFullYear()} Loompaa. All rights reserved.</p>
+          <p className="text-sm font-medium text-white/30 italic">Built by the factory floor, for the factory floor.</p>
         </div>
       </div>
     </footer>

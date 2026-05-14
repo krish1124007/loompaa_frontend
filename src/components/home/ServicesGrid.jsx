@@ -71,7 +71,7 @@ export default function ServicesGrid() {
   const services = useSiteStore((s) => s.services);
 
   return (
-    <section className="theme-cream bg-base overflow-hidden">
+    <section className="theme-cream bg-white overflow-hidden rounded-b-[60px] md:rounded-b-[100px] shadow-sm z-20 relative">
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32">
 
         {/* ── Section header ── */}

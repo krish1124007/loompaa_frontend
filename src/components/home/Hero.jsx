@@ -97,27 +97,30 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
-      className="theme-cream bg-base relative overflow-hidden -mt-16 md:-mt-20 pt-16 md:pt-20"
+      className="theme-cream bg-base relative -mt-16 md:-mt-20 pt-16 md:pt-20 rounded-b-[3rem] z-10"
     >
-      {/* Decorative grid backdrop */}
-      <div
-        aria-hidden="true"
-        className="hero-grid absolute inset-0 opacity-[0.04] pointer-events-none"
-        style={{
-          backgroundImage:
-            'linear-gradient(var(--ink-primary) 1px, transparent 1px), linear-gradient(90deg, var(--ink-primary) 1px, transparent 1px)',
-          backgroundSize: '120px 120px',
-        }}
-      />
+      {/* Inner clip: keeps decoratives from bleeding out of section bounds */}
+      <div className="absolute inset-0 overflow-hidden rounded-b-[3rem] pointer-events-none">
+        {/* Decorative grid backdrop */}
+        <div
+          aria-hidden="true"
+          className="hero-grid absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              'linear-gradient(var(--ink-primary) 1px, transparent 1px), linear-gradient(90deg, var(--ink-primary) 1px, transparent 1px)',
+            backgroundSize: '120px 120px',
+          }}
+        />
 
-      {/* Decorative radial glow */}
-      <div
-        aria-hidden="true"
-        className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[500px] pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse at center, rgba(255,107,44,0.08) 0%, transparent 65%)',
-        }}
-      />
+        {/* Decorative radial glow */}
+        <div
+          aria-hidden="true"
+          className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[500px]"
+          style={{
+            background: 'radial-gradient(ellipse at center, rgba(255,107,44,0.08) 0%, transparent 65%)',
+          }}
+        />
+      </div>
 
       {/* Floating decorative shapes with speed data for parallax */}
       <img
@@ -164,11 +167,25 @@ export default function Hero() {
           <h1
             ref={h1Ref}
             style={{ opacity: 0 }}
-            className="hero-title font-sans font-black text-[3.5rem] md:text-[6rem] text-ink leading-none tracking-[-0.04em]"
+            className="hero-title font-sans font-black text-[40px] md:text-[84px] text-ink leading-[1.1] tracking-[-0.04em]"
           >
-            We don't <Highlight color="lemon">pitch decks.</Highlight>
-            <br />
-            We ship <Highlight color="tangerine">results.</Highlight>
+            <span className="block whitespace-nowrap">
+              We don't <Highlight color="lemon">pitch decks.</Highlight>
+            </span>
+            <span className="block whitespace-nowrap mt-4">
+              We Ship <span className="relative inline-block ml-8">
+                <span className="absolute -left-6 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
+                   {/* Bigger Cursor Icon closer to text */}
+                   <svg width="56" height="56" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-xl rotate-[90deg]">
+                      <path d="M5.5 3.5L18.5 11.5L11.5 13.5L9.5 20.5L5.5 3.5Z" fill="black" stroke="white" strokeWidth="2.5" strokeLinejoin="round"/>
+                   </svg>
+                </span>
+                <span className="relative inline-block px-8 py-3">
+                  <span className="absolute inset-0 bg-[#3B3BFF] -rotate-2 rounded-2xl shadow-[0_15px_40px_rgba(59,59,255,0.3)]" />
+                  <span className="relative text-white">results.</span>
+                </span>
+              </span>
+            </span>
           </h1>
 
           {/* Sub copy */}

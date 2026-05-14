@@ -3,7 +3,7 @@ import Hero from '../../components/home/Hero.jsx';
 import SocialProofTicker from '../../components/home/SocialProofTicker.jsx';
 import Numbers from '../../components/home/Numbers.jsx';
 import ServicesGrid from '../../components/home/ServicesGrid.jsx';
-import SocialCTA from '../../components/home/SocialCTA.jsx';
+import ConversationCTA from '../../components/home/ConversationCTA.jsx';
 import HowItWorks from '../../components/home/HowItWorks.jsx';
 import LoompaaStory from '../../components/home/LoompaaStory.jsx';
 import Testimonials from '../../components/home/Testimonials.jsx';
@@ -44,11 +44,14 @@ export default function Home() {
         <script type="application/ld+json">{JSON.stringify(ORG_SCHEMA)}</script>
       </Helmet>
 
-      <Hero />
-      <SocialProofTicker />
-      <Numbers />
+      {/* Black wrapper so rounded white sections show their curves */}
+      <div style={{ background: '#0A0A0A' }}>
+        <Hero />
+        <SocialProofTicker />
+        <Numbers />
+      </div>
       <ServicesGrid />
-      <SocialCTA />
+      <ConversationCTA />
       <HowItWorks />
       <Testimonials />
       <LoompaaStory />

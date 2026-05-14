@@ -38,9 +38,9 @@ const VARIANTS = {
 };
 
 const SIZES = {
-  sm: 'px-5 py-2.5 text-[13px]',
-  md: 'px-7 py-3.5 text-[15px]',
-  lg: 'px-8 py-4 text-[17px]',
+  sm: 'px-6 py-3 text-[14px]',
+  md: 'px-8 py-[18px] text-[16px]',
+  lg: 'px-12 py-6 text-[19px]',
 };
 
 const Button = forwardRef(function Button(

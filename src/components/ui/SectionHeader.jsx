@@ -44,6 +44,7 @@ export default function SectionHeader({
   align = 'left',
   size = 'lg',
   className = '',
+  light = false,
 }) {
   const aligns = { left: 'items-start text-left', center: 'items-center text-center' };
   const sizes = {
@@ -53,14 +54,15 @@ export default function SectionHeader({
   };
   return (
     <div className={cn('flex flex-col gap-6', aligns[align], className)}>
-      {eyebrow && <Pill variant="accent">{eyebrow}</Pill>}
-      <h2 className={cn('font-sans font-bold text-ink', sizes[size])}>
+      {eyebrow && <Pill variant={light ? "inverse" : "accent"}>{eyebrow}</Pill>}
+      <h2 className={cn('font-sans font-bold', light ? 'text-white' : 'text-ink', sizes[size])}>
         {renderEmphasized(headline, emphasis, emphasisColor)}
       </h2>
       {subhead && (
         <p
           className={cn(
-            'text-ink-sec text-base md:text-lg leading-relaxed max-w-prose',
+            light ? 'text-white/60' : 'text-ink-sec',
+            'text-base md:text-lg leading-relaxed max-w-prose',
             align === 'center' && 'mx-auto',
           )}
         >

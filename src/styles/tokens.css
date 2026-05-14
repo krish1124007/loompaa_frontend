@@ -31,8 +31,8 @@
 }
 
 .theme-cream {
-  --bg-base: #F5F1E8;
-  --bg-elevated: #FFFFFF;
+  --bg-base: #FFFFFF;
+  --bg-elevated: #F8F8F8;
   --bg-inverse: #0A0A0A;
   --ink-primary: #0A0A0A;
   --ink-secondary: #545049;

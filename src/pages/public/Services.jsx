@@ -130,10 +130,12 @@ export default function Services() {
           <h1
             ref={h1Ref}
             style={{ opacity: 0 }}
-            className="mt-8 font-sans font-black text-display-xl text-ink leading-[0.95] tracking-[-0.03em] max-w-5xl mx-auto"
+            className="mt-8 font-sans font-bold text-[32px] md:text-[56px] text-ink leading-[1.115em] tracking-[-0.03em] max-w-5xl mx-auto"
           >
-            We offer a wide range of{' '}
-            <span className="text-tangerine">e-commerce services.</span>
+            <span className="block">We offer a wide range</span>
+            <span className="block">
+              of <span className="text-tangerine">e-commerce</span> services.
+            </span>
           </h1>
           <p className="mt-8 text-ink-sec text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-medium">
             <SplitText 

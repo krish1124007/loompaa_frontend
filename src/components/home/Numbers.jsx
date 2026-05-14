@@ -2,7 +2,6 @@ import { useRef, useMemo } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import RevealOnScroll from '../ui/RevealOnScroll.jsx';
 import IMG from '../../assets/images.js';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -49,96 +48,61 @@ function SplitText({ text, className }) {
   );
 }
 
-function StatCard({ stat, index }) {
-  const cardRef = useRef(null);
+/* ── Inline stat — single row: number left, label right ── */
+function InlineStat({ stat, index }) {
+  const wrapRef = useRef(null);
   const numRef  = useRef(null);
 
   useGSAP(() => {
-    const card = cardRef.current;
+    const wrap = wrapRef.current;
     const num  = numRef.current;
-    if (!card || !num) return;
+    if (!wrap || !num) return;
 
-    /* Entrance: scale + fade */
+    /* Entrance */
     gsap.fromTo(
-      card,
-      { y: 60, opacity: 0, scale: 0.9 },
+      wrap,
+      { x: 30, opacity: 0 },
       {
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        duration: 0.8,
-        delay: index * 0.12,
-        ease: 'back.out(1.5)',
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 88%',
-        },
+        x: 0, opacity: 1, duration: 0.7,
+        delay: index * 0.14,
+        ease: 'expo.out',
+        scrollTrigger: { trigger: wrap, start: 'top 88%' },
       },
     );
 
-    /* Animated count-up */
+    /* Count-up */
     const obj = { val: 0 };
     gsap.to(obj, {
       val: stat.value,
       duration: 1.8,
       ease: 'power2.out',
-      delay: index * 0.12 + 0.3,
-      scrollTrigger: {
-        trigger: card,
-        start: 'top 88%',
-      },
+      delay: index * 0.14 + 0.25,
+      scrollTrigger: { trigger: wrap, start: 'top 88%' },
       onUpdate() {
         const formatted = Number.isInteger(stat.value)
           ? Math.round(obj.val)
           : obj.val.toFixed(1);
-        num.textContent =
-          (stat.prefix || '') + formatted + (stat.suffix || '');
+        num.textContent = (stat.prefix || '') + formatted + (stat.suffix || '');
       },
     });
-
-    /* Hover: clean lift shadow */
-    const enter = () =>
-      gsap.to(card, {
-        boxShadow: '0 20px 48px rgba(0,0,0,0.10)',
-        y: -4,
-        duration: 0.35,
-        ease: 'power2.out',
-      });
-    const leave = () =>
-      gsap.to(card, {
-        boxShadow: '0 2px 12px rgba(0,0,0,0.05)',
-        y: 0,
-        duration: 0.4,
-        ease: 'power2.inOut',
-      });
-
-    card.addEventListener('mouseenter', enter);
-    card.addEventListener('mouseleave', leave);
-    return () => {
-      card.removeEventListener('mouseenter', enter);
-      card.removeEventListener('mouseleave', leave);
-    };
-  }, { scope: cardRef });
+  }, { scope: wrapRef });
 
   return (
     <div
-      ref={cardRef}
-      className="relative rounded-2xl p-7 md:p-9 flex flex-col gap-3 cursor-default"
-      style={{
-        background: '#FFFFFF',
-        border: '1.5px solid rgba(10,10,10,0.08)',
-        boxShadow: '0 2px 12px rgba(0,0,0,0.05)',
-      }}
+      ref={wrapRef}
+      className="flex flex-col gap-1 cursor-default"
+      style={{ opacity: 0 }}
     >
-      <span className="absolute top-6 right-6 h-2.5 w-2.5 rounded-full bg-tangerine" />
+      {/* Big number */}
       <p
         ref={numRef}
-        className="font-black text-[3.5rem] md:text-[4.5rem] leading-none tracking-[-0.04em]"
-        style={{ color: '#0A0A0A' }}
+        className="font-bold leading-none tracking-[-0.04em]"
+        style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', color: '#0A0A0A' }}
       >
         {stat.prefix || ''}0{stat.suffix || ''}
       </p>
-      <p className="text-sm font-medium leading-snug" style={{ color: 'rgba(10,10,10,0.55)' }}>
+      {/* Label */}
+      <p className="text-sm md:text-base font-medium mt-1" style={{ color: 'rgba(10,10,10,0.50)' }}>
         {stat.label}
       </p>
     </div>
@@ -149,18 +113,6 @@ export default function Numbers() {
   const sectionRef = useRef(null);
 
   useGSAP(() => {
-    /* Parallax globe */
-    gsap.to('.numbers-globe', {
-      y: -40,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 2,
-      },
-    });
-
     /* Sub-headline "typing" stagger reveal */
     gsap.to('.sub-headline .char', {
       opacity: 1,
@@ -172,7 +124,7 @@ export default function Numbers() {
         trigger: '.sub-headline',
         start: 'top 85%',
         toggleActions: 'play none none none',
-      }
+      },
     });
 
     /* Headline fill effect */
@@ -192,55 +144,84 @@ export default function Numbers() {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} id="numbers" className="theme-cream bg-base overflow-hidden">
+    <section ref={sectionRef} id="numbers" className="theme-cream bg-base overflow-hidden rounded-t-[3rem] relative z-10">
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32">
-        <RevealOnScroll>
-          <span className="inline-flex items-center gap-2 bg-tangerine/10 text-tangerine border border-tangerine/25 rounded-full px-4 py-1.5 font-mono text-[11px] font-bold tracking-[0.18em] uppercase mb-10">
-            <span className="h-1.5 w-1.5 rounded-full bg-tangerine inline-block" />
-            THE NUMBERS
-          </span>
-        </RevealOnScroll>
 
         <div className="grid grid-cols-12 gap-10 md:gap-16 items-center">
+
+          {/* LEFT — World Map image (from contact assets) */}
           <div className="col-span-12 lg:col-span-5 order-2 lg:order-1">
             <div className="relative">
+              {/* Soft glow behind map */}
               <div
-                className="absolute inset-0 m-auto w-[280px] h-[280px] rounded-full pointer-events-none"
+                className="absolute inset-0 m-auto w-[300px] h-[300px] rounded-full pointer-events-none"
                 style={{
-                  background: 'conic-gradient(from 0deg, rgba(255,107,44,0.15), rgba(79,111,255,0.15), rgba(255,217,61,0.12), rgba(16,185,129,0.12), rgba(255,107,44,0.15))',
-                  animation: 'spin 12s linear infinite',
-                  filter: 'blur(24px)',
+                  background: 'radial-gradient(ellipse at center, rgba(255,107,44,0.12) 0%, transparent 70%)',
+                  filter: 'blur(30px)',
                 }}
               />
-              <img src={IMG.globe} alt="Globe" loading="lazy" className="numbers-globe relative w-full max-w-md mx-auto h-auto" />
+              <img
+                src={IMG.worldMapLight}
+                alt="World map showing Loompaa's reach"
+                loading="lazy"
+                className="relative w-full max-w-lg mx-auto h-auto"
+                style={{ mixBlendMode: 'multiply' }}
+              />
             </div>
           </div>
 
+          {/* RIGHT — Content */}
           <div className="col-span-12 lg:col-span-7 order-1 lg:order-2">
-            <h2 className="numbers-headline font-black text-display-lg text-ink leading-[0.92] tracking-[-0.04em] mb-12">
-              We are an extension{' '}
+
+            {/* Headline — styled exactly like the screenshot with cursor on the left pointing right */}
+            <h2 className="numbers-headline font-sans font-black text-[42px] md:text-[64px] leading-[1.1] tracking-[-0.04em] text-[#0A0A0A] mb-10">
               <span className="relative inline-block">
-                <span aria-hidden="true" className="absolute inset-x-0 inset-y-2 -rotate-1 rounded-[8px] bg-lemon" />
-                <span className="relative" style={{ color: '#0A0A0A' }}>of your team.</span>
+                <span className="absolute -left-6 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
+                   {/* Bigger Cursor Icon closer to text */}
+                   <svg width="56" height="56" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-xl rotate-[90deg]">
+                      <path d="M5.5 3.5L18.5 11.5L11.5 13.5L9.5 20.5L5.5 3.5Z" fill="black" stroke="white" strokeWidth="2.5" strokeLinejoin="round"/>
+                   </svg>
+                </span>
+                <span className="relative inline-block px-8 py-3">
+                  <span className="absolute inset-0 bg-[#3B3BFF] -rotate-2 rounded-2xl shadow-[0_15px_40px_rgba(59,59,255,0.3)]" />
+                  <span className="relative text-white">Unlimited</span>
+                </span>
               </span>
+              <span className="ml-4">design</span>
+              <span className="block mt-2">for your startup</span>
             </h2>
 
-            <div className="text-ink-sec text-base md:text-lg leading-relaxed mb-12 max-w-xl">
-              <SplitText 
-                text="The output of a good factory is measurable. Here is ours, across the brands we run today." 
-                className="sub-headline" 
+            {/* Body text */}
+            <div className="text-ink-sec text-base md:text-lg leading-relaxed mb-8 max-w-xl">
+              <SplitText
+                text="The output of a good factory is measurable. Here is ours, across the brands we run today."
+                className="sub-headline"
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            {/* Stats — horizontal inline row (reference style, no card boxes) */}
+            <div className="flex flex-nowrap gap-6 md:gap-10 mb-10 overflow-x-auto pb-4 md:pb-0 scrollbar-hide">
               {STATS.map((stat, i) => (
-                <StatCard key={stat.label} stat={stat} index={i} />
+                <InlineStat key={stat.label} stat={stat} index={i} />
               ))}
             </div>
+
+            {/* Learn more CTA */}
+            <a
+              href="/about"
+              className="inline-flex items-center gap-3 font-bold text-base text-ink hover:text-tangerine transition-colors duration-200 group"
+            >
+              Learn more
+              <span
+                className="inline-flex items-center justify-center w-9 h-9 rounded-full border-2 border-current group-hover:bg-tangerine group-hover:border-tangerine group-hover:text-white transition-all duration-200 text-sm"
+                aria-hidden="true"
+              >
+                ↗
+              </span>
+            </a>
           </div>
         </div>
       </div>
-      <style>{`@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
     </section>
   );
 }

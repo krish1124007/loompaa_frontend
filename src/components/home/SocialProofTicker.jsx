@@ -4,14 +4,14 @@ import gsap from 'gsap';
 import IMG from '../../assets/images.js';
 
 const ITEMS = [
-  { label: 'Result-Driven',       icon: IMG.growth      },
-  { label: 'No Retainer Drama',   icon: IMG.agency      },
-  { label: 'Plug. Build. Grow.',  icon: IMG.startup     },
-  { label: '48 Hours to Live',    icon: IMG.venture     },
-  { label: 'We Are The Loompaas', icon: IMG.enterprise  },
-  { label: "Numbers Don't Lie",   icon: IMG.company     },
-  { label: 'Your Factory Floor',  icon: IMG.institute   },
-  { label: 'Zero Lock-In',        icon: IMG.star        },
+  { label: 'Startup',    icon: IMG.startup    },
+  { label: 'Institute',  icon: IMG.institute  },
+  { label: 'Enterprise', icon: IMG.enterprise },
+  { label: 'Company',    icon: IMG.company    },
+  { label: 'Agency',     icon: IMG.agency     },
+  { label: 'Venture',    icon: IMG.venture    },
+  { label: 'Growth',     icon: IMG.growth     },
+  { label: 'Studio',     icon: IMG.star       },
 ];
 
 /* ── Animated icon — no bubble, no border, plain dark image ── */
@@ -52,8 +52,8 @@ function AnimatedIcon({ icon, index }) {
       src={icon}
       alt=""
       aria-hidden="true"
-      className="h-7 w-7 md:h-9 md:w-9 flex-shrink-0 cursor-pointer"
-      style={{ filter: 'brightness(0)', opacity: 0.7 }}
+      className="h-9 w-9 md:h-12 md:w-12 flex-shrink-0 cursor-pointer"
+      style={{ filter: 'brightness(0) invert(1)', opacity: 0.75 }}
     />
   );
 }
@@ -67,7 +67,7 @@ function TickerRow({ items, speed = 40, reverse = false }) {
       <div
         className="flex items-center w-max"
         style={{
-          gap: '3rem',
+          gap: '5rem',
           animation: `ticker-${reverse ? 'rtl' : 'ltr'} ${speed}s linear infinite`,
         }}
       >
@@ -79,14 +79,11 @@ function TickerRow({ items, speed = 40, reverse = false }) {
             <AnimatedIcon icon={item.icon} index={i % items.length} />
 
             <span
-              className="font-mono uppercase text-sm md:text-base tracking-[0.18em] font-semibold whitespace-nowrap"
-              style={{ color: 'rgba(10,10,10,0.50)' }}
+              className="font-sans font-bold text-xl md:text-3xl whitespace-nowrap tracking-wide"
+              style={{ color: 'rgba(255,255,255,0.90)' }}
             >
               {item.label}
             </span>
-
-            {/* Separator — plain tangerine dot, no glow */}
-            <span className="text-base font-bold flex-shrink-0 text-tangerine">✦</span>
           </span>
         ))}
       </div>
@@ -99,7 +96,7 @@ export default function SocialProofTicker() {
   const secondHalf = ITEMS.slice(Math.ceil(ITEMS.length / 2));
 
   return (
-    <section className="border-y border-subtle overflow-hidden py-10 md:py-14 flex flex-col gap-10 md:gap-12 bg-base/60">
+    <section className="overflow-hidden py-16 md:py-24 flex flex-col gap-14 md:gap-20" style={{ background: '#0A0A0A' }}>
       <TickerRow items={[...firstHalf, ...secondHalf]} speed={55} />
       <TickerRow items={[...secondHalf, ...firstHalf]} speed={45} reverse />
 

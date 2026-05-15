@@ -44,17 +44,28 @@ export default function Home() {
         <script type="application/ld+json">{JSON.stringify(ORG_SCHEMA)}</script>
       </Helmet>
 
-      {/* Black wrapper so rounded white sections show their curves */}
-      <div style={{ background: '#0A0A0A' }}>
-        <Hero />
+      {/* Hero is white, no data-nav-dark here */}
+      <Hero />
+
+      {/* Dark sections */}
+      <div style={{ background: '#0A0A0A' }} data-nav-dark="true">
         <SocialProofTicker />
         <Numbers />
       </div>
+
       <ServicesGrid />
-      <ConversationCTA />
+
+      <div data-nav-dark="true">
+        <ConversationCTA />
+      </div>
+
       <HowItWorks />
       <Testimonials />
-      <LoompaaStory />
+
+      <div data-nav-dark="true">
+        <LoompaaStory />
+      </div>
+
       <BlogTeaser />
       <FAQ />
       <FinalCTA />

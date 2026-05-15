@@ -8,7 +8,7 @@ export default function Logo({ to = '/', variant = 'dark', size = 'md', classNam
     lg: 'text-4xl',
     xl: 'text-6xl md:text-7xl',
   };
-  const inkColor = variant === 'light' ? 'text-ink-on-cream' : 'text-ink';
+  const inkColor = 'text-current';
 
   return (
     <Link

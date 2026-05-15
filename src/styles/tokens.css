@@ -41,3 +41,15 @@
   --border-subtle: rgba(10, 10, 10, 0.08);
   --border-strong: rgba(10, 10, 10, 0.20);
 }
+
+.theme-dark {
+  --bg-base: #0A0A0A;
+  --bg-elevated: #141414;
+  --bg-inverse: #F5F1E8;
+  --ink-primary: #F5F1E8;
+  --ink-secondary: #A8A39A;
+  --ink-tertiary: #6B6760;
+  --ink-inverse: #0A0A0A;
+  --border-subtle: rgba(245, 241, 232, 0.08);
+  --border-strong: rgba(245, 241, 232, 0.18);
+}

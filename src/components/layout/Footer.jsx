@@ -47,7 +47,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-[#0A0A0A] text-white rounded-t-[60px] md:rounded-t-[100px] overflow-hidden relative z-30">
+    <footer data-nav-dark="true" className="bg-[#0A0A0A] text-white rounded-t-[60px] md:rounded-t-[100px] overflow-hidden relative z-30">
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32">
 
         {/* ── Top: logo + tagline + newsletter ── */}

@@ -4,10 +4,13 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Logo from '../ui/Logo.jsx';
 import Button from '../ui/Button.jsx';
 import { useSiteStore } from '../../stores/siteStore.js';
 import { cn } from '../../lib/cn.js';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const NAV_LINKS = [
   { to: '/', label: 'Home', exact: true },
@@ -23,6 +26,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [isLight, setIsLight] = useState(false);
   const navRef = useRef(null);
 
   /* Entrance animation on mount */
@@ -37,6 +41,34 @@ export default function Navbar() {
       { scale: 0.92, opacity: 0 },
       { scale: 1, opacity: 1, duration: 0.7, ease: 'back.out(1.6)', delay: 0.2 },
     );
+
+    // Theme detection for sections
+    const lightSections = document.querySelectorAll('.theme-cream');
+    lightSections.forEach((section) => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top 50px',
+        end: 'bottom 50px',
+        onEnter: () => setIsLight(true),
+        onLeave: () => setIsLight(false),
+        onEnterBack: () => setIsLight(true),
+        onLeaveBack: () => setIsLight(false),
+      });
+    });
+
+    // Check initial state - look for section under navbar
+    const checkInitial = () => {
+      // Small delay to ensure layout is ready
+      setTimeout(() => {
+        const el = document.elementFromPoint(window.innerWidth / 2, 70);
+        if (el?.closest('.theme-cream')) {
+          setIsLight(true);
+        } else {
+          setIsLight(false);
+        }
+      }, 100);
+    };
+    checkInitial();
   }, { scope: navRef });
 
   useEffect(() => {
@@ -64,18 +96,26 @@ export default function Navbar() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         scrolled || mobileOpen ? 'py-3 md:py-4' : 'py-5 md:py-8',
+        isLight ? 'theme-cream' : 'theme-dark',
       )}
+      style={{
+        color: isLight ? '#0A0A0A' : '#F5F1E8'
+      }}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div
           className={cn(
-            'nav-pill flex items-center justify-between gap-6 px-6 md:px-8 h-[60px] md:h-[68px] rounded-full border border-subtle/50 transition-all duration-500',
+            'nav-pill flex items-center justify-between gap-4 px-4 md:px-8 h-[60px] md:h-[68px] rounded-full border border-subtle/50 transition-all duration-500',
             scrolled || mobileOpen
               ? 'bg-base/90 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.12)]'
               : 'bg-elevated/40 backdrop-blur-md shadow-sm',
           )}
         >
-          <Logo size="md" className="shrink-0 transition-transform hover:scale-105" />
+          <Logo 
+            size="md" 
+            className="shrink-0 transition-transform hover:scale-105" 
+            variant={isLight ? 'light' : 'dark'}
+          />
 
           <nav className="hidden lg:flex items-center gap-1">
             {NAV_LINKS.map((link) => {
@@ -94,7 +134,7 @@ export default function Navbar() {
                           'flex items-center gap-1.5 px-4 py-2 rounded-full text-[15px] font-bold tracking-[-0.01em] transition-all duration-300',
                           isActive
                             ? 'text-tangerine bg-tangerine/5'
-                            : 'text-ink/70 hover:text-ink hover:bg-base/50',
+                            : 'text-current/70 hover:text-current hover:bg-base/50',
                         )
                       }
                     >
@@ -152,7 +192,7 @@ export default function Navbar() {
                       'nav-item px-4 py-2 rounded-full text-[15px] font-bold tracking-[-0.01em] transition-all duration-300',
                       isActive
                         ? 'text-tangerine bg-tangerine/5'
-                        : 'text-ink/70 hover:text-ink hover:bg-base/50',
+                        : 'text-current/70 hover:text-current hover:bg-base/50',
                     )
                   }
                 >
@@ -163,14 +203,19 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden lg:flex items-center">
-            <Button to="/contact" variant="primary" size="sm" className="h-10 px-6">
+            <Button 
+              to="/contact" 
+              variant={isLight ? 'dark' : 'primary'} 
+              size="sm" 
+              className="h-10 px-6"
+            >
               Start Building
             </Button>
           </div>
 
         <button
           type="button"
-          className="lg:hidden p-2 -mr-2 text-ink"
+          className="lg:hidden p-2 -mr-2 text-current"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
         >
@@ -186,7 +231,10 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden fixed inset-0 top-16 bg-base z-40 overflow-y-auto"
+            className={cn(
+              'lg:hidden fixed inset-0 top-16 bg-base z-40 overflow-y-auto',
+              isLight ? 'theme-cream' : 'theme-dark',
+            )}
           >
             <div className="px-6 py-8 space-y-1">
               {NAV_LINKS.map((link) => (

@@ -11,52 +11,52 @@ const SEGMENTS = [
   {
     label: 'B',
     title: 'The Scaling Brand',
-    body: '₹2Cr–₹20Cr/month. Has a small in-house team but needs specialist execution capacity. Accountable to quarterly numbers. Wants delivery, not managed expectations.',
+    body: '₹2Cr–₹20Cr/month. Has a small in-house team but needs specialist execution capacity. Wants delivery, not managed expectations.',
   },
   {
     label: 'C',
     title: 'The Funded Operator',
-    body: 'Has raised capital and needs to deploy it efficiently. Understands CAC, LTV, and payback period. Wants institutional-grade reporting alongside high-speed execution.',
+    body: 'Has raised capital and needs to deploy it efficiently. Understands CAC, LTV, and payback period. Wants institutional-grade reporting.',
   },
 ];
 
 export default function AboutSegments() {
   return (
-    <section className="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32">
-      <div className="grid grid-cols-12 gap-8 md:gap-16 mb-16">
-        <div className="col-span-12 md:col-span-7">
-          <SectionHeader
-            eyebrow="WHO WE WORK WITH"
-            headline="We're not for everyone. We know exactly who we're for."
-            emphasis="exactly who we're for."
-            size="lg"
-          />
+    <section className="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32 overflow-hidden">
+      <div className="grid grid-cols-12 gap-8 md:gap-16 mb-20">
+        <div className="col-span-12 lg:col-span-7">
+          <RevealOnScroll>
+            <h2 className="font-sans font-black text-[42px] md:text-[72px] leading-[1.05] tracking-[-0.04em] text-[#0A0A0A]">
+              We're not for everyone. <br />
+              <span className="text-[#0A0A0A]/30">We know exactly who we're for.</span>
+            </h2>
+          </RevealOnScroll>
         </div>
-        <div className="col-span-12 md:col-span-5 md:pt-12">
+        <div className="col-span-12 lg:col-span-5 lg:pt-12">
           <RevealOnScroll delay={0.1}>
-            <p className="text-ink-sec text-base md:text-lg leading-relaxed">
-              Loompaa works best with D2C brands doing ₹5L–₹5Cr per month who have proven their product but haven't cracked profitable scale. If you're pre-product, we're probably not the right fit yet. If you're beyond ₹5Cr and need a full-scale operational partner, let's talk on the Full Factory plan.
+            <p className="text-ink-sec text-lg md:text-xl leading-relaxed font-medium">
+              Loompaa works best with D2C brands doing ₹5L–₹5Cr per month who have proven their product but haven't cracked profitable scale.
             </p>
           </RevealOnScroll>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16">
         {SEGMENTS.map((seg, i) => (
-          <RevealOnScroll key={seg.label} delay={i * 0.08}>
-            <article className="h-full rounded-card border border-subtle bg-elevated p-7 md:p-8 flex flex-col gap-5">
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-tangerine/15 text-tangerine font-mono text-lg font-medium">
+          <RevealOnScroll key={seg.label} delay={i * 0.1}>
+            <article className="group h-full rounded-[32px] border border-black/5 bg-white p-8 md:p-10 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col gap-6">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-tangerine/10 text-tangerine font-mono text-xl font-bold">
                 {seg.label}
               </span>
-              <h3 className="text-xl md:text-2xl font-semibold text-ink">{seg.title}</h3>
-              <p className="text-ink-sec text-base leading-relaxed">{seg.body}</p>
+              <h3 className="text-2xl md:text-3xl font-black text-ink leading-tight">{seg.title}</h3>
+              <p className="text-ink-sec text-lg leading-relaxed font-medium">{seg.body}</p>
             </article>
           </RevealOnScroll>
         ))}
       </div>
 
       <div className="flex justify-center">
-        <Button to="/contact" size="lg">Let's See If We Fit</Button>
+        <Button to="/contact" size="lg" className="px-12">Let's See If We Fit</Button>
       </div>
     </section>
   );

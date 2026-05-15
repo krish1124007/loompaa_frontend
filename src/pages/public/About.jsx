@@ -17,11 +17,17 @@ export default function About() {
         />
       </Helmet>
       <AboutHero />
-      <AboutOrigin />
+      <div data-nav-dark="true">
+        <AboutOrigin />
+      </div>
       <AboutDifferent />
-      <AboutValues />
+      <div data-nav-dark="true">
+        <AboutValues />
+      </div>
       <AboutSegments />
-      <FinalCTA />
+      <div data-nav-dark="true">
+        <FinalCTA />
+      </div>
     </>
   );
 }
